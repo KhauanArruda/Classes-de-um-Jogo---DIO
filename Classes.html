@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herói e Aventura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Criação de Herói</h1>
+    <p>Preencha os dados para criar seu herói e veja o ataque na tela!</p>
+    <div id="resultado"></div>
+    <script>
+        // Classe Heroi
+        class Heroi {
+            constructor(nome, idade, tipo) {
+                this.nome = nome; // Nome do herói
+                this.idade = idade; // Idade do herói
+                this.tipo = tipo; // Tipo do herói (guerreiro, mago, monge, ninja)
+            }
+
+            // Método atacar
+            atacar() {
+                let ataque;
+                switch (this.tipo.toLowerCase()) {
+                    case "mago":
+                        ataque = "usou magia";
+                        break;
+                    case "guerreiro":
+                        ataque = "usou espada";
+                        break;
+                    case "monge":
+                        ataque = "usou cajado";
+                        break;
+                    case "ninja":
+                        ataque = "usou shuriken";
+                        break;
+                    default:
+                        ataque = "fez um ataque desconhecido";
+                }
+                return `O ${this.tipo} ${ataque}.`;
+            }
+        }
+
+        // Função principal
+        function criarHeroi() {
+            // Solicita informações do usuário
+            const nome = prompt("Digite o nome do herói:");
+            const idade = prompt("Digite a idade do herói:");
+            const tipo = prompt("Digite o tipo do herói (guerreiro, mago, monge, ninja):");
+
+            // Cria o herói com as informações fornecidas
+            const heroi = new Heroi(nome, idade, tipo);
+
+            // Exibe informações do herói na tela
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `
+                <p><strong>Nome:</strong> ${heroi.nome}</p>
+                <p><strong>Idade:</strong> ${heroi.idade}</p>
+            `;
+
+            // Pergunta se o usuário deseja atacar
+            const desejaAtacar = prompt("Você deseja atacar? (sim/não)").toLowerCase();
+
+            if (desejaAtacar === "sim") {
+                resultadoDiv.innerHTML += `<p>${heroi.atacar()}</p>`;
+            } else if (desejaAtacar === "não") {
+                alert("Voltando ao início...");
+                criarHeroi(); // Retorna ao início
+            } else {
+                alert("Resposta inválida. Tente novamente.");
+                criarHeroi(); // Retorna ao início em caso de erro
+            }
+        }
+
+        // Executa o programa
+        criarHeroi();
+    </script>
+</body>
+</html>
