@@ -12,8 +12,11 @@ Bem-vindo ao projeto **Herói e Aventura**! Este é um pequeno programa em HTML 
 ## 🛠️ Como Usar
 
 1. **Clone o repositório**:
+
    ```bash
    git clone https://github.com/KhauanArruda/Classes-de-um-Jogo---DIO
+
+   ```
 
 2. Abra o arquivo HTML no navegador:
 
@@ -42,7 +45,7 @@ Nome, idade e o ataque do herói serão exibidos na tela.
 Nome: Naruto
 Idade: 20
 Resultado do ataque: O ninja usou shuriken.
-🧑‍💻 Desenvolvido Por
-Este projeto foi desenvolvido por:
+
+🧑‍💻 Desenvolvido Por:
 
 Khauan Luiz 💻
